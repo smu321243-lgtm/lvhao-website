@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /docx_out.txt
+
+Sitemap: https://smu321243-lgtm.github.io/lvhao-website/sitemap.xml
