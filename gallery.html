@@ -2,34 +2,71 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-<meta name="description" content="绿豪农业基地实拍 — 水稻种植基地、田间管理、丰收现场精彩瞬间">
-<meta name="keywords" content="绿豪农业,水稻基地,毛豆种植,田间实拍,儋州农业,无人机植保,机械化收割">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="绿豪农业基地实拍 — 水稻种植、无人机植保、毛豆丰收、机械化作业精彩影像">
 <title>基地图库 — 海南儋州绿豪农业有限公司</title>
 <link rel="stylesheet" href="css/style.css">
 <style>
-.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.gallery-item{position:relative;border-radius:var(--radius-md);overflow:hidden;cursor:pointer;aspect-ratio:4/3;background:var(--green-100)}
-.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.gallery-item:hover img{transform:scale(1.06)}
-.gallery-item .overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5) 0%,transparent 60%);opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:16px}
-.gallery-item:hover .overlay{opacity:1}
-.gallery-item .overlay span{color:#fff;font-size:14px;font-weight:600}
+/* ===== Gallery Redesign: Premium Edition ===== */
+.gallery-hero{background:var(--green-950);padding:160px 0 80px;text-align:center;position:relative;overflow:hidden}
+.gallery-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(68,192,109,.12) 0%,transparent 60%),radial-gradient(ellipse at 70% 50%,rgba(232,184,75,.08) 0%,transparent 60%)}
+.gallery-hero h1{font-size:clamp(32px,5vw,48px);color:#fff;font-weight:800;position:relative}
+.gallery-hero p{color:rgba(255,255,255,.55);font-size:16px;margin-top:12px;position:relative}
 
-/* Lightbox */
-.lightbox{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.92);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s}
-.lightbox.open{opacity:1;pointer-events:auto}
-.lightbox img{max-width:92vw;max-height:88vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.5);transform:scale(.9);transition:transform .3s}
-.lightbox.open img{transform:scale(1)}
-.lb-close{position:absolute;top:20px;right:28px;color:#fff;font-size:36px;cursor:pointer;z-index:1;width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(255,255,255,.1);transition:background .2s}
-.lb-close:hover{background:rgba(255,255,255,.2)}
-.lb-prev,.lb-next{position:absolute;top:50%;transform:translateY(-50%);color:#fff;font-size:40px;cursor:pointer;width:50px;height:50px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(255,255,255,.1);transition:background .2s;user-select:none}
-.lb-prev:hover,.lb-next:hover{background:rgba(255,255,255,.2)}
-.lb-prev{left:20px}.lb-next{right:20px}
-.lb-counter{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.7);font-size:14px}
+/* Filter tabs */
+.filter-bar{display:flex;justify-content:center;gap:10px;padding:24px 0;flex-wrap:wrap}
+.filter-btn{padding:10px 22px;border-radius:24px;border:1.5px solid var(--green-200);background:#fff;color:var(--text-secondary);font-size:14px;font-weight:600;cursor:pointer;transition:all .3s;font-family:var(--font-body)}
+.filter-btn:hover,.filter-btn.active{background:var(--green-600);color:#fff;border-color:var(--green-600);box-shadow:0 4px 16px rgba(68,192,109,.25)}
 
-@media(max-width:768px){.gallery-grid{grid-template-columns:repeat(2,1fr);gap:10px}.lb-prev,.lb-next{width:40px;height:40px;font-size:28px}}
-@media(max-width:480px){.gallery-grid{grid-template-columns:1fr 1fr;gap:8px}}
+/* Masonry grid */
+.masonry{columns:4;column-gap:16px;padding:0 0 40px}
+.masonry-item{break-inside:avoid;margin-bottom:16px;border-radius:var(--radius-md);overflow:hidden;cursor:pointer;position:relative;background:var(--green-100);transition:transform .35s}
+.masonry-item:hover{transform:translateY(-4px)}
+.masonry-item img{width:100%;display:block;transition:transform .6s}
+.masonry-item:hover img{transform:scale(1.05)}
+/* Vary heights for waterfall effect */
+.masonry-item:nth-child(3n+1) img{aspect-ratio:3/4}
+.masonry-item:nth-child(3n+2) img{aspect-ratio:4/3}
+.masonry-item:nth-child(3n) img{aspect-ratio:1/1}
+/* Overlay */
+.masonry-item .cap{position:absolute;bottom:0;left:0;right:0;padding:20px 16px;background:linear-gradient(transparent,rgba(0,0,0,.7));color:#fff;opacity:0;transform:translateY(10px);transition:all .35s}
+.masonry-item:hover .cap{opacity:1;transform:translateY(0)}
+.masonry-item .cap h4{font-size:15px;font-weight:600;margin-bottom:2px}
+.masonry-item .cap span{font-size:12px;opacity:.75}
+
+/* Cinema lightbox */
+.cinema{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.94);display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .4s}
+.cinema.open{opacity:1;pointer-events:auto}
+.cinema-top{position:absolute;top:0;left:0;right:0;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;z-index:2}
+.cinema-counter{color:rgba(255,255,255,.6);font-size:14px;font-weight:500}
+.cinema-close{width:40px;height:40px;border-radius:50%;border:none;background:rgba(255,255,255,.12);color:#fff;font-size:24px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.cinema-close:hover{background:rgba(255,255,255,.2)}
+.cinema-main{display:flex;align-items:center;justify-content:center;gap:20px;padding:60px 20px;flex:1;width:100%}
+.cinema-main img{max-width:88vw;max-height:72vh;border-radius:16px;box-shadow:0 24px 80px rgba(0,0,0,.5);transform:scale(.92);transition:transform .4s}
+.cinema.open .cinema-main img{transform:scale(1)}
+.cinema-nav{width:48px;height:48px;border-radius:50%;border:none;background:rgba(255,255,255,.1);color:#fff;font-size:28px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0}
+.cinema-nav:hover{background:rgba(255,255,255,.2);transform:scale(1.1)}
+.cinema-caption{text-align:center;color:#fff;padding:0 20px 30px}
+.cinema-caption h3{font-size:20px;font-weight:600;margin-bottom:4px}
+.cinema-caption p{font-size:14px;color:rgba(255,255,255,.5)}
+/* Thumbnail strip */
+.cinema-thumbs{display:flex;gap:8px;justify-content:center;padding:0 20px 20px;overflow-x:auto;max-width:90vw}
+.cinema-thumbs img{width:56px;height:56px;object-fit:cover;border-radius:8px;cursor:pointer;opacity:.4;border:2px solid transparent;transition:all .25s;flex-shrink:0}
+.cinema-thumbs img.active{opacity:1;border-color:var(--green-400)}
+.cinema-thumbs img:hover{opacity:.8}
+
+/* Marquee strip at top */
+.marquee-strip{overflow:hidden;white-space:nowrap;padding:40px 0 0;user-select:none}
+.marquee-inner{display:inline-flex;gap:16px;animation:marquee 40s linear infinite}
+.marquee-strip:hover .marquee-inner{animation-play-state:paused}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.marquee-card{width:220px;height:160px;border-radius:14px;overflow:hidden;flex-shrink:0;position:relative}
+.marquee-card img{width:100%;height:100%;object-fit:cover}
+.marquee-card .label{position:absolute;bottom:0;left:0;right:0;padding:10px;background:linear-gradient(transparent,rgba(0,0,0,.6));color:#fff;font-size:12px;font-weight:600}
+
+@media(max-width:1024px){.masonry{columns:3}}
+@media(max-width:768px){.masonry{columns:2;column-gap:10px}.masonry-item{margin-bottom:10px}.cinema-nav{width:36px;height:36px;font-size:20px}.cinema-thumbs img{width:44px;height:44px}}
+@media(max-width:480px){.masonry{columns:2;column-gap:8px}.masonry-item{margin-bottom:8px}}
 </style>
 </head>
 <body>
@@ -37,8 +74,7 @@
 <nav class="navbar" id="navbar">
   <div class="container">
     <a href="index.html" class="nav-logo">
-      <img src="images/logo.jpg" alt="绿豪农业" class="logo-img">
-      <span>绿豪农业</span>
+      <img src="images/logo.jpg" alt="绿豪农业" class="logo-img"><span>绿豪农业</span>
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">首页</a></li>
@@ -52,30 +88,53 @@
   </div>
 </nav>
 
-<section class="page-hero">
+<!-- Hero -->
+<section class="gallery-hero">
   <div class="container">
-    <h1>📸 基地图库</h1>
-    <p>田间实拍 · 记录每一粒米的成长</p>
+    <h1>📸 基地影像志</h1>
+    <p>镜头下的绿豪农业 · 记录从田间到丰收的每一个瞬间</p>
   </div>
 </section>
 
-<div class="breadcrumb">
-  <div class="container"><a href="index.html">首页</a><span>/</span>基地图库</div>
+<div class="breadcrumb"><div class="container"><a href="index.html">首页</a><span>/</span>基地图库</div></div>
+
+<!-- 跑马灯预览 -->
+<div class="marquee-strip">
+  <div class="marquee-inner" id="marqueeInner"></div>
 </div>
 
-<section class="section">
-  <div class="container">
-    <div class="gallery-grid" id="galleryGrid"></div>
+<!-- 筛选 -->
+<div class="container">
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">🌾 全部</button>
+    <button class="filter-btn" data-filter="rice">🌱 水稻种植</button>
+    <button class="filter-btn" data-filter="soy">🫘 毛豆基地</button>
+    <button class="filter-btn" data-filter="tech">🚁 科技农机</button>
+    <button class="filter-btn" data-filter="harvest">🏆 丰收现场</button>
   </div>
-</section>
+</div>
 
-<!-- Lightbox -->
-<div class="lightbox" id="lightbox">
-  <button class="lb-close" id="lbClose">&times;</button>
-  <button class="lb-prev" id="lbPrev">&#8249;</button>
-  <button class="lb-next" id="lbNext">&#8250;</button>
-  <img src="" alt="" id="lbImg">
-  <div class="lb-counter" id="lbCounter"></div>
+<!-- 瀑布流 -->
+<div class="container">
+  <div class="masonry" id="masonryGrid"></div>
+</div>
+
+<!-- 影院级灯箱 -->
+<div class="cinema" id="cinema">
+  <div class="cinema-top">
+    <span class="cinema-counter" id="cinemaCounter"></span>
+    <button class="cinema-close" id="cinemaClose">&times;</button>
+  </div>
+  <div class="cinema-main">
+    <button class="cinema-nav" id="cinemaPrev">&#8249;</button>
+    <img src="" alt="" id="cinemaImg">
+    <button class="cinema-nav" id="cinemaNext">&#8250;</button>
+  </div>
+  <div class="cinema-caption">
+    <h3 id="cinemaTitle"></h3>
+    <p id="cinemaDesc"></p>
+  </div>
+  <div class="cinema-thumbs" id="cinemaThumbs"></div>
 </div>
 
 <footer class="footer">
@@ -92,73 +151,114 @@
 
 <script src="js/main.js"></script>
 <script>
-// Gallery data - image filenames and captions
-const images = [
-  {src:'images/图片1.png',title:'水稻幼苗期 — 绿意盎然的希望'},
-  {src:'images/图片2.png',title:'无人机植保作业 — 精准施肥喷药'},
-  {src:'images/图片3.png',title:'水稻分蘖期 — 长势旺盛的稻田'},
-  {src:'images/图片4.png',title:'金秋丰收季 — 机械化收割现场'},
-  {src:'images/图片5.png',title:'稻穗饱满 — 等待收割的成熟水稻'},
-  {src:'images/图片6.png',title:'毛豆种植基地 — 广阔豆田'},
-  {src:'images/图片7.png',title:'田间管理 — 科学种植标准化'},
-  {src:'images/图片8.png',title:'绿豪农业基地 — 俯瞰全景'},
-  {src:'images/图片9.png',title:'丰收成果 — 颗粒归仓'},
+// Image data with categories
+const data = [
+  {cat:'rice',title:'水稻幼苗期',desc:'嫩绿的秧苗破土而出，孕育着丰收的希望'},
+  {cat:'tech',title:'无人机植保作业',desc:'精准施肥喷药，科技赋能现代农业'},
+  {cat:'rice',title:'水稻分蘖期',desc:'长势旺盛，田间管理科学规范'},
+  {cat:'harvest',title:'金秋丰收季',desc:'机械化收割，高效又省力'},
+  {cat:'harvest',title:'稻穗饱满待收割',desc:'沉甸甸的稻穗是辛勤耕耘的最好回报'},
+  {cat:'soy',title:'毛豆种植基地',desc:'广阔豆田，稻豆轮作模式的核心'},
+  {cat:'rice',title:'田间精细管理',desc:'标准化种植，每一个环节都严格把控'},
+  {cat:'rice',title:'绿豪农业基地全景',desc:'俯瞰生机盎然的现代化农业基地'},
+  {cat:'harvest',title:'丰收成果',desc:'颗粒归仓，一年的辛劳化作金色收获'},
+  {cat:'soy',title:'毛豆长势喜人',desc:'豆荚饱满，即将迎来毛豆丰收季'},
+  {cat:'tech',title:'机械化耕作',desc:'大型农机驰骋田间，效率倍增'},
+  {cat:'rice',title:'稻田灌溉系统',desc:'科学节水灌溉，保障水稻健康生长'},
+  {cat:'harvest',title:'晾晒场上金灿灿',desc:'稻谷铺满晒场，阳光下金光闪闪'},
+  {cat:'soy',title:'毛豆分拣包装',desc:'丰收季千人在岗，分拣包装一条龙'},
+  {cat:'tech',title:'农机维护保养',desc:'精良装备是高效生产的基础保障'},
+  {cat:'rice',title:'新品种试验田',desc:'特优9068、玖里香等优质品种田间对比'},
+  {cat:'harvest',title:'粮食装车外运',desc:'销往武汉、长沙、上海等全国市场'},
 ];
 
-let currentIndex = 0;
-const grid = document.getElementById('galleryGrid');
-const lightbox = document.getElementById('lightbox');
-const lbImg = document.getElementById('lbImg');
-const lbCounter = document.getElementById('lbCounter');
+// Build images array
+const images = data.map((d,i)=>({...d,src:`images/图片${i+1}.png`}));
 
-// Build grid
-images.forEach((img, i) => {
-  const item = document.createElement('div');
-  item.className = 'gallery-item';
-  item.innerHTML = `
-    <img src="${img.src}" alt="${img.title}" loading="lazy">
-    <div class="overlay"><span>${img.title}</span></div>
-  `;
-  item.onclick = () => openLightbox(i);
-  grid.appendChild(item);
+// Render marquee
+const marquee = document.getElementById('marqueeInner');
+[...images,...images].forEach(img => {
+  const card = document.createElement('div');
+  card.className = 'marquee-card';
+  card.innerHTML = `<img src="${img.src}" alt="${img.title}" loading="lazy"><div class="label">${img.title}</div>`;
+  marquee.appendChild(card);
 });
 
-function openLightbox(i) {
-  currentIndex = i;
-  lbImg.src = images[i].src;
-  lbImg.alt = images[i].title;
-  lbCounter.textContent = `${i+1} / ${images.length}`;
-  lightbox.classList.add('open');
+// Render masonry
+let filtered = [...images];
+const grid = document.getElementById('masonryGrid');
+function renderGrid(items) {
+  grid.innerHTML = '';
+  items.forEach((img,i) => {
+    const item = document.createElement('div');
+    item.className = 'masonry-item';
+    item.setAttribute('data-cat',img.cat);
+    item.innerHTML = `
+      <img src="${img.src}" alt="${img.title}" loading="lazy">
+      <div class="cap"><h4>${img.title}</h4><span>${img.desc}</span></div>
+    `;
+    item.onclick = () => openCinema(items.indexOf(img));
+    grid.appendChild(item);
+  });
+}
+renderGrid(filtered);
+
+// Filter
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click',function(){
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    this.classList.add('active');
+    const cat = this.getAttribute('data-filter');
+    filtered = cat==='all' ? [...images] : images.filter(i=>i.cat===cat);
+    renderGrid(filtered);
+    currentIdx = 0;
+  });
+});
+
+// Cinema lightbox
+let currentIdx = 0;
+const cinema = document.getElementById('cinema');
+const cinemaImg = document.getElementById('cinemaImg');
+const cinemaTitle = document.getElementById('cinemaTitle');
+const cinemaDesc = document.getElementById('cinemaDesc');
+const cinemaCounter = document.getElementById('cinemaCounter');
+const cinemaThumbs = document.getElementById('cinemaThumbs');
+
+function openCinema(i) {
+  currentIdx = i;
+  updateCinema();
+  cinema.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
-
-function closeLightbox() {
-  lightbox.classList.remove('open');
+function closeCinema() {
+  cinema.classList.remove('open');
   document.body.style.overflow = '';
 }
-
-function prev() {
-  currentIndex = (currentIndex - 1 + images.length) % images.length;
-  lbImg.src = images[currentIndex].src;
-  lbCounter.textContent = `${currentIndex+1} / ${images.length}`;
+function updateCinema() {
+  const img = filtered[currentIdx];
+  cinemaImg.src = img.src;
+  cinemaTitle.textContent = img.title;
+  cinemaDesc.textContent = img.desc;
+  cinemaCounter.textContent = `${currentIdx+1} / ${filtered.length}`;
+  // Thumbnails
+  cinemaThumbs.innerHTML = '';
+  filtered.forEach((f,i) => {
+    const t = document.createElement('img');
+    t.src = f.src;
+    if(i===currentIdx) t.classList.add('active');
+    t.onclick = () => { currentIdx=i; updateCinema(); };
+    cinemaThumbs.appendChild(t);
+  });
 }
-
-function next() {
-  currentIndex = (currentIndex + 1) % images.length;
-  lbImg.src = images[currentIndex].src;
-  lbCounter.textContent = `${currentIndex+1} / ${images.length}`;
-}
-
-document.getElementById('lbClose').onclick = closeLightbox;
-document.getElementById('lbPrev').onclick = prev;
-document.getElementById('lbNext').onclick = next;
-lightbox.onclick = e => { if(e.target === lightbox) closeLightbox(); };
-
-document.addEventListener('keydown', e => {
-  if(!lightbox.classList.contains('open')) return;
-  if(e.key === 'Escape') closeLightbox();
-  if(e.key === 'ArrowLeft') prev();
-  if(e.key === 'ArrowRight') next();
+document.getElementById('cinemaClose').onclick = closeCinema;
+document.getElementById('cinemaPrev').onclick = () => { currentIdx=(currentIdx-1+filtered.length)%filtered.length; updateCinema(); };
+document.getElementById('cinemaNext').onclick = () => { currentIdx=(currentIdx+1)%filtered.length; updateCinema(); };
+cinema.onclick = e => { if(e.target===cinema) closeCinema(); };
+document.addEventListener('keydown',e=>{
+  if(!cinema.classList.contains('open')) return;
+  if(e.key==='Escape') closeCinema();
+  if(e.key==='ArrowLeft'){currentIdx=(currentIdx-1+filtered.length)%filtered.length;updateCinema()}
+  if(e.key==='ArrowRight'){currentIdx=(currentIdx+1)%filtered.length;updateCinema()}
 });
 </script>
 </body>
