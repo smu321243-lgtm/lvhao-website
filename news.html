@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>新闻资讯 — 海南儋州绿豪农业有限公司</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 9999;
+  background: rgba(0,0,0,0.5); backdrop-filter: blur(4px);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none; transition: opacity 0.3s;
+}
+.modal-overlay.open { opacity: 1; pointer-events: auto; }
+.modal-box {
+  background: white; border-radius: 20px; padding: 36px 40px;
+  max-width: 700px; width: 92%; max-height: 85vh; overflow-y: auto;
+  position: relative;
+}
+.modal-close {
+  position: absolute; top: 16px; right: 20px;
+  width: 36px; height: 36px; border-radius: 50%;
+  border: none; background: #f0f0f0; font-size: 20px;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s;
+}
+.modal-close:hover { background: #e0e0e0; }
+.modal-box h2 { font-size: 22px; margin-bottom: 8px; color: var(--green-900); padding-right: 30px; }
+.modal-box .modal-date { font-size: 13px; color: var(--text-light); margin-bottom: 20px; }
+.modal-box .modal-body { font-size: 15px; line-height: 2.1; color: var(--text-secondary); }
+.modal-box .modal-body p { margin-bottom: 14px; }
+.modal-box .modal-source {
+  margin-top: 20px; padding-top: 16px; border-top: 1px solid #eee;
+  font-size: 12px; color: var(--text-light);
+}
+.modal-box .modal-source a { color: var(--green-600); text-decoration: underline; }
+.news-card { cursor: pointer; position: relative; }
+.news-card .read-more { font-size: 12px; color: var(--green-600); font-weight: 600; margin-top: 8px; }
+</style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <a href="index.html" class="nav-logo">
+      <div class="logo-icon">🌾</div>
+      <span>绿豪农业</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">首页</a></li>
+      <li><a href="products.html">业务体系</a></li>
+      <li><a href="about.html">关于我们</a></li>
+      <li><a href="news.html" class="active">新闻资讯</a></li>
+      <li><a href="contact.html" class="nav-cta">联系我们</a></li>
+    </ul>
+    <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <h1>新闻资讯</h1>
+    <p>企业动态 · 媒体报道 · 行业政策</p>
+  </div>
+</section>
+
+<div class="breadcrumb">
+  <div class="container"><a href="index.html">首页</a><span>/</span>新闻资讯</div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="news-grid">
+
+      <div class="news-card" onclick="openNews('n1')">
+        <div class="img" style="background:linear-gradient(135deg, #e8f5e9, #c8e6c9);">📋</div>
+        <div class="info">
+          <div class="date">2026年6月5日</div>
+          <h3>获评2026年儋州市新型经营主体单产提升项目实施主体</h3>
+          <p>经儋州市农业农村局公示确认，公司在东成镇6个村委会种植水稻2589亩，全面推进五良融合模式。</p>
+          <div class="read-more">点击阅读详情 →</div>
+        </div>
+      </div>
+
+      <div class="news-card" onclick="openNews('n2')">
+        <div class="img" style="background:linear-gradient(135deg, #fff3e0, #ffe0b2);">🏆</div>
+        <div class="info">
+          <div class="date">2025年3月31日</div>
+          <h3>承担儋州市2025年水稻绿色高质高效项目</h3>
+          <p>入选水稻绿色高质高效项目早稻实施主体（第二批），种植面积3979亩，获政府专项资金支持。</p>
+          <div class="read-more">点击阅读详情 →</div>
+        </div>
+      </div>
+
+      <div class="news-card" onclick="openNews('n3')">
+        <div class="img" style="background:linear-gradient(135deg, #fce4ec, #f8bbd0);">📰</div>
+        <div class="info">
+          <div class="date">2024年12月</div>
+          <h3>东成镇六千亩毛豆喜丰收 — 毛豆变"金豆"</h3>
+          <p>获儋州市人民政府、南海网等多家媒体关注报道，带动千名村民家门口就业增收。</p>
+          <div class="read-more">点击阅读详情 →</div>
+        </div>
+      </div>
+
+      <div class="news-card" onclick="openNews('n4')">
+        <div class="img" style="background:linear-gradient(135deg, #e3f2fd, #bbdefb);">🚜</div>
+        <div class="info">
+          <div class="date">2024年8月</div>
+          <h3>儋州推广水稻种植"五良融合模式"</h3>
+          <p>公司作为儋州首批应用"五良融合模式"的种植大户，获海南省农业农村厅官网报道。</p>
+          <div class="read-more">点击阅读详情 →</div>
+        </div>
+      </div>
+
+      <div class="news-card" onclick="openNews('n5')">
+        <div class="img" style="background:linear-gradient(135deg, #f1f8e9, #dcedc8);">🌾</div>
+        <div class="info">
+          <div class="date">2024年</div>
+          <h3>水稻机械化生产现场观摩会在东成镇召开</h3>
+          <p>在东成镇举办水稻新品种推广暨机械化生产现场观摩会，展示全程机械化作业流程。</p>
+          <div class="read-more">点击阅读详情 →</div>
+        </div>
+      </div>
+
+      <div class="news-card" onclick="openNews('n6')">
+        <div class="img" style="background:linear-gradient(135deg, #fff8e1, #ffecb3);">🤝</div>
+        <div class="info">
+          <div class="date">常年推进</div>
+          <h3>"公司+农户"模式带动乡村振兴</h3>
+          <p>土地租金+务工收入双重增收，丰收季每日雇用1000多名劳动力，村民家门口实现就业。</p>
+          <div class="read-more">点击阅读详情 →</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 详情弹窗 -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeNews(event)">
+  <div class="modal-box" id="modalBox" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeNews()">&times;</button>
+    <h2 id="modalTitle"></h2>
+    <div class="modal-date" id="modalDate"></div>
+    <div class="modal-body" id="modalBody"></div>
+    <div class="modal-source" id="modalSource"></div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div><h4>🌾 绿豪农业</h4><p>海南儋州绿豪农业有限公司<br>五良融合 · 绿色高质 · 乡村振兴</p></div>
+      <div><h4>快速导航</h4><p><a href="index.html">首页</a></p><p><a href="products.html">业务体系</a></p><p><a href="about.html">关于我们</a></p><p><a href="news.html">新闻资讯</a></p></div>
+      <div><h4>核心业务</h4><p><a href="products.html">优质水稻</a></p><p><a href="products.html">鲜食毛豆</a></p><p><a href="products.html">农业服务</a></p></div>
+      <div><h4>联系方式</h4><p>📍 海南省儋州市东成镇</p></div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 海南儋州绿豪农业有限公司. All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+const newsData = {
+  n1: {
+    title: '获评2026年儋州市新型经营主体单产提升项目实施主体',
+    date: '2026年6月5日',
+    body: `<p>2026年6月5日，儋州市农业农村局发布<b>《关于2026年儋州市新型经营主体单产提升行动项目实施主体确认公示》</b>，海南儋州绿豪农业有限公司正式获评项目实施主体。</p>
+<p><b>项目概况：</b></p>
+<p>🌾 实施地点：东成镇寨脚村委会等<b>6个村委会</b></p>
+<p>📐 种植面积：水稻<b>2589亩</b></p>
+<p>🎯 项目目标：提升水稻单产水平，推广五良融合模式</p>
+<p>获得该项目认定，标志着公司水稻种植的规模和技术水平获得政府认可。公司将全面应用<b>"良种、良田、良法、良机、良制"五良融合模式</b>，实现从传统农业向现代农业的转型升级。</p>
+<p>这也是公司继2025年水稻绿色高质高效项目之后，连续第二年获得政府农业项目认定。</p>`,
+    source: '来源：儋州市人民政府官网 — 市农业农村局公示文件'
+  },
+  n2: {
+    title: '承担儋州市2025年水稻绿色高质高效项目',
+    date: '2025年3月31日',
+    body: `<p>2025年3月31日，儋州市农业农村局发布<b>《关于儋州市2025年水稻绿色高质高效项目早稻实施主体（第二批）的公示》</b>，海南儋州绿豪农业有限公司入选第二批实施主体。</p>
+<p><b>项目概况：</b></p>
+<p>🌾 早稻种植面积：<b>3979亩</b></p>
+<p>💰 获政府专项资金支持</p>
+<p>📋 项目要求：推广绿色种植技术、提升水稻品质和产量</p>
+<p>该项目是农业部在全国范围内推广的<b>绿色高质高效行动</b>的一部分，旨在通过推广优良品种、集成高产技术、推进绿色生产，实现粮食作物的高质量发展。公司入选该项目，充分体现了在规模化水稻种植方面的实力和示范效应。</p>`,
+    source: '来源：儋州市人民政府官网 — 市农业农村局公示文件'
+  },
+  n3: {
+    title: '东成镇六千亩毛豆喜丰收 — 毛豆变"金豆"',
+    date: '2024年12月',
+    body: `<p>2024年12月，海南儋州绿豪农业有限公司的毛豆种植基地迎来丰收季。儋州市人民政府、南海网、南国都市报、儋州市融媒体中心等<b>多家媒体</b>对此进行了专题报道。</p>
+<p><b>丰收数据：</b></p>
+<p>🫘 种植面积：约<b>5600亩</b>，覆盖高荣村、番陈村、书村村等<b>7个村庄</b></p>
+<p>📈 亩产：约<b>1300斤</b></p>
+<p>💰 收购价：<b>5-6元/斤</b>，每亩收益超6000元</p>
+<p>🚛 销售市场：产品远销<b>武汉、长沙、上海</b>等全国各地</p>
+<p>👷 带动就业：丰收季每日雇用<b>1000多名</b>劳动力</p>
+<p>公司采用一年两季的"<b>稻豆轮作</b>"模式，毛豆收完种水稻，使土地得到了充分利用，改良了土壤结构，减少了病虫害发生。这一模式被媒体誉为"<b>毛豆变金豆</b>"，成为东成镇乡村振兴的典范案例。</p>`,
+    source: '来源：儋州市人民政府官网、南海网、南国都市报等综合报道'
+  },
+  n4: {
+    title: '儋州推广水稻种植"五良融合模式"',
+    date: '2024年8月',
+    body: `<p>2024年8月，海南省农业农村厅官网发布报道《儋州推广水稻种植"五良融合模式"，助力农业现代化》，对海南儋州绿豪农业有限公司作为<b>儋州首批应用"五良融合模式"的种植大户</b>进行了报道。</p>
+<p><b>五良融合模式详解：</b></p>
+<p>🌱 <b>良种</b> — 推广特优9068、玖里香、玮两钰占、美两优秋香等优质高产水稻品种</p>
+<p>🌍 <b>良田</b> — 稻豆轮作改良土壤，建设高标准农田</p>
+<p>📐 <b>良法</b> — 科学种植规范，绿色防控技术，精准施肥灌溉</p>
+<p>🚜 <b>良机</b> — 机耕、机插、无人机施肥喷药、机收，全程机械化作业</p>
+<p>🏛️ <b>良制</b> — "公司+农户"组织模式，标准化管理制度</p>
+<p>报道指出，公司作为儋州规模化的种植企业，在水稻新品种推广和机械化生产方面发挥了重要的<b>示范引领作用</b>。</p>`,
+    source: '来源：海南省农业农村厅官网（agri.hainan.gov.cn）'
+  },
+  n5: {
+    title: '水稻机械化生产现场观摩会在东成镇召开',
+    date: '2024年',
+    body: `<p>2024年，海南儋州绿豪农业有限公司在东成镇举办了<b>水稻新品种推广暨机械化生产现场观摩会</b>。</p>
+<p><b>观摩会亮点：</b></p>
+<p>🌱 <b>机耕机插演示</b> — 现场展示机械化整地和水稻机插作业，效率比人工提升数倍</p>
+<p>🚁 <b>无人机植保演示</b> — 植保无人机精准施肥和喷药作业，大幅降低人力成本，提高农药利用率</p>
+<p>🚜 <b>机械化收割展示</b> — 大型收割机现场作业，缩短收获周期，减少粮食损耗</p>
+<p>📊 <b>新品种推介</b> — 展示多个优质水稻品种的田间表现，为周边农户提供品种选择参考</p>
+<p>观摩会吸引了周边种植大户、农业合作社代表、农业技术人员以及政府相关部门负责人参加。公司负责人介绍了<b>"五良融合"</b>实践经验，为推动儋州水稻生产全程机械化起到了积极的示范作用。</p>`
+  },
+  n6: {
+    title: '"公司+农户"模式带动乡村振兴',
+    date: '常年推进',
+    body: `<p>海南儋州绿豪农业有限公司始终坚持<b>"公司+农户"</b>经营模式，在儋州市东成镇7个村庄开展规模化农业种植，探索出一条企业与农户共赢的乡村振兴之路。</p>
+<p><b>双增收模式：</b></p>
+<p>💰 <b>土地租金收入</b> — 公司承租村民土地，每年支付稳定租金，让农户有保底收入。即使不参与劳动，村民也能获得稳定的土地收益。</p>
+<p>👷 <b>务工收入</b> — 丰收季每日雇用<b>1000多名</b>劳动力从事采收、分拣、包装等工作，村民在家门口就能就业，兼顾家庭与收入。</p>
+<p><b>科学种植模式：</b></p>
+<p>🔄 <b>稻豆轮作</b> — 毛豆收完种水稻，一年两季，土地不闲置，农民全年有活干。这种模式不仅提高土地利用率，还能改良土壤、减少病虫害。</p>
+<p>🚜 <b>全程机械化</b> — 机耕、机插、无人机植保、机收，大幅提升生产效率，降低劳动强度。</p>
+<p><b>社会效益：</b></p>
+<p>公司通过规模化、标准化、现代化的农业经营，不仅创造了可观的经济效益，更带动了周边村庄的劳动力就业和农民增收，成为儋州市<b>农业龙头企业</b>和<b>乡村振兴的典范案例</b>，多次获得政府项目认定和媒体报道。</p>`
+  }
+};
+
+function openNews(id) {
+  const d = newsData[id];
+  if (!d) return;
+  document.getElementById('modalTitle').textContent = d.title;
+  document.getElementById('modalDate').textContent = d.date;
+  document.getElementById('modalBody').innerHTML = d.body;
+  document.getElementById('modalSource').innerHTML = d.source || '';
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeNews(e) {
+  if (e && e.target !== document.getElementById('modalOverlay')) return;
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeNews();
+});
+</script>
+</body>
+</html>
