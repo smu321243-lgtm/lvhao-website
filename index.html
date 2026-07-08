@@ -14,7 +14,7 @@
 <!-- ====== NAV ====== -->
 <nav class="navbar" id="navbar">
   <div class="container">
-    <a href="#" class="nav-logo"><div class="logo-icon">🌾</div><span>绿豪农业</span></a>
+    <a href="#" class="nav-logo"><img src="images/logo.jpg" alt="绿豪农业" class="logo-img"><span>绿豪农业</span></a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#hero" class="active">首页</a></li>
       <li><a href="#business">业务</a></li>
@@ -148,6 +148,10 @@
         <div class="vc-img card-bg-soybean"><span class="vc-tag">✨ 高端香米</span><div class="vc-emoji">✨</div></div>
         <div class="vc-info"><h3>美两优秋香</h3><p>浓香型金奖品种 · 口感极佳</p></div>
       </div>
+      <div class="variety-card" onclick="openV('teyou458')">
+        <div class="vc-img card-bg-soybean"><span class="vc-tag">🏅 海南主导品种</span><div class="vc-emoji">🏅</div></div>
+        <div class="vc-info"><h3>特优458</h3><p>技术发明一等奖 · 结实率90%+</p></div>
+      </div>
     </div>
   </div>
 </section>
@@ -267,7 +271,8 @@ const vd={
   teyou9068:{title:'特优9068 — 海南好米金奖品种',subtitle:'籼型三系杂交稻 | 粤审稻20210028 | 广东华茂×广东农科院',body:'<p><b>品种概况：</b>感温型籼型三系杂交水稻，亲本龙特浦A×广恢9068。获评<b>"海南好米"金奖品种</b>，三亚市农业主导品种。</p><p><b>🌾 特征：</b>全生育期123~128天，株高104~113cm，穗长21.5cm，每穗136~138粒，结实率85%+，千粒重27克。抗稻瘟病，中抗白叶枯。</p><p><b>📊 产量：</b>广东区试亩产446~508kg，海南示范测产<b>572.6kg</b>。</p><p><b>💡 优势：</b>常规管理即可，适合机械化种植。田间长势旺盛，成穗率高，熟色好。</p>',source:'来源：广东省农业科学院、中国水稻品种数据库'},
   jiulixiang:{title:'玖里香 — 部标优质1级浓香丝苗米',subtitle:'籼型常规水稻 | 琼审稻2023011 | 中国种子集团×广东农科院',body:'<p><b>品种概况：</b>籼型常规水稻，亲本南泰香占×南桂占。获评<b>第五届"海南好米"金奖</b>，部标优质1级。</p><p><b>🍚 米质核心亮点：</b>垩白度<b>接近0%</b>，米粒晶莹剔透。长宽比4.2，典型丝苗米。香味物质2-AP高达<b>214μg/kg</b>，香气浓郁持久。食味品鉴<b>86.6分</b>，米饭颗粒分明、软硬适中。</p><p><b>📊 产量：</b>广东区试亩产420~443kg，比对照<b>增产9%~11%</b>。</p><p><b>🛡️ 抗性：</b>抗稻瘟病强，抗倒伏。注意防治白叶枯病。</p>',source:'来源：广东省农业农村厅、国家农作物品种审定委员会'},
   weiliangyuzhan:{title:'玮两优钰占 — 袁隆平团队国审超级稻',subtitle:'籼型两系杂交稻 | 国审稻20232005 | 袁隆平农业高科技',body:'<p><b>品种概况：</b>由<b>袁隆平农业高科技</b>培育，亲本华玮338S×钰占。入选<b>2025年百项重大农业科技成果</b>。</p><p><b>🌾 特征：</b>早稻生育期127天，株高119cm，穗长24cm，每穗143~158粒，千粒重25克。</p><p><b>📊 产量：</b>华南早稻亩产<b>525.8kg</b>，长江上游中稻亩产<b>653.3kg</b>，长江中下游亩产<b>637.4kg</b>（增产4.9%）。</p><p><b>🍚 米质：</b>国标二级，整精米率62%~68%，垩白度1.7%~3%，透明度1级。</p><p><b>💡 亮点：</b>覆盖三大稻区，适应性极广。2025年入选全国百项重大农业科技成果。</p>',source:'来源：袁隆平农业高科技、国家农作物品种审定委员会'},
-  meiliangyou:{title:'美两优秋香 — 海南好米金奖浓香品种',subtitle:'籼型两系杂交稻 | 琼审稻2023003 | 广州优能达稻米科技',body:'<p><b>品种概况：</b>籼型两系杂交水稻，亲本美香93S×优能秋香。连续多年获评<b>"海南好米"金奖</b>，三亚市农业主导品种。</p><p><b>🍚 米质核心：</b><b>纯米香味非常浓郁</b>，食味品质突出。直链淀粉15.5%，软糯中不失嚼劲。吃后润味甘甜，部颁优质香米2级。</p><p><b>📊 产量：</b>海南晚造亩产346~449kg，属优质偏低产类型。</p><p><b>💡 定位：</b>产量不突出但<b>米香浓郁、口感极佳</b>，高端市场竞争力强，适合品牌溢价。</p>',source:'来源：海南省农业农村厅、广州优能达稻米科技'}
+  meiliangyou:{title:'美两优秋香 — 海南好米金奖浓香品种',subtitle:'籼型两系杂交稻 | 琼审稻2023003 | 广州优能达稻米科技',body:'<p><b>品种概况：</b>籼型两系杂交水稻，亲本美香93S×优能秋香。连续多年获评<b>"海南好米"金奖</b>，三亚市农业主导品种。</p><p><b>🍚 米质核心：</b><b>纯米香味非常浓郁</b>，食味品质突出。直链淀粉15.5%，软糯中不失嚼劲。吃后润味甘甜，部颁优质香米2级。</p><p><b>📊 产量：</b>海南晚造亩产346~449kg，属优质偏低产类型。2025年绿豪农业示范区种植12亩。</p><p><b>💡 定位：</b>产量不突出但<b>米香浓郁、口感极佳</b>，高端市场竞争力强，适合品牌溢价。</p>',source:'来源：海南省农业农村厅、广州优能达稻米科技'},
+  teyou458:{title:'特优458 — 海南省技术发明一等奖',subtitle:'籼型三系杂交稻 | 琼审稻2010015 | 海南省农科院粮作所',body:'<p><b>品种概况：</b>亲本龙特甫A×R458。2010年海南审定，2021年扩季审定<b>早晚稻兼用</b>。2023年入选<b>海南省农业主导品种</b>。荣获<b>2020年度海南省技术发明一等奖</b>。</p><p><b>🌾 特征：</b>全生育期121~142天，株高105cm，结实率<b>90.7%</b>（极高）。耐热、耐荫、抗稻瘟病，具有较好耐盐性。</p><p><b>📊 产量：</b>早造亩产500~515kg，高产田块<b>750kg/亩以上</b>。2025年绿豪农业示范区种植<b>374.5亩</b>。</p><p><b>💡 地位：</b>海南自主选育早稻播种面积最大组合，已推广至文昌、定安、琼海、儋州、昌江等市县及广东、广西。</p>',source:'来源：海南省科技厅、海南省农科院、中国水稻品种数据库'}
 };
 function openV(id){const v=vd[id];if(!v)return;document.getElementById('vTitle').textContent=v.title;document.getElementById('vSubtitle').textContent=v.subtitle;document.getElementById('vBody').innerHTML=v.body;document.getElementById('vSource').textContent=v.source||'';document.getElementById('vOverlay').classList.add('open');document.body.style.overflow='hidden'}
 function closeV(e){if(e&&e.target!==document.getElementById('vOverlay'))return;document.getElementById('vOverlay').classList.remove('open');document.body.style.overflow=''}
