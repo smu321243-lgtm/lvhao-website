@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="description" content="绿豪农业基地实拍 — 水稻种植基地、田间管理、丰收现场精彩瞬间">
+<meta name="keywords" content="绿豪农业,水稻基地,毛豆种植,田间实拍,儋州农业,无人机植保,机械化收割">
+<title>基地图库 — 海南儋州绿豪农业有限公司</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.gallery-item{position:relative;border-radius:var(--radius-md);overflow:hidden;cursor:pointer;aspect-ratio:4/3;background:var(--green-100)}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.gallery-item:hover img{transform:scale(1.06)}
+.gallery-item .overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5) 0%,transparent 60%);opacity:0;transition:opacity .3s;display:flex;align-items:flex-end;padding:16px}
+.gallery-item:hover .overlay{opacity:1}
+.gallery-item .overlay span{color:#fff;font-size:14px;font-weight:600}
+
+/* Lightbox */
+.lightbox{position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.92);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s}
+.lightbox.open{opacity:1;pointer-events:auto}
+.lightbox img{max-width:92vw;max-height:88vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.5);transform:scale(.9);transition:transform .3s}
+.lightbox.open img{transform:scale(1)}
+.lb-close{position:absolute;top:20px;right:28px;color:#fff;font-size:36px;cursor:pointer;z-index:1;width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(255,255,255,.1);transition:background .2s}
+.lb-close:hover{background:rgba(255,255,255,.2)}
+.lb-prev,.lb-next{position:absolute;top:50%;transform:translateY(-50%);color:#fff;font-size:40px;cursor:pointer;width:50px;height:50px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(255,255,255,.1);transition:background .2s;user-select:none}
+.lb-prev:hover,.lb-next:hover{background:rgba(255,255,255,.2)}
+.lb-prev{left:20px}.lb-next{right:20px}
+.lb-counter{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.7);font-size:14px}
+
+@media(max-width:768px){.gallery-grid{grid-template-columns:repeat(2,1fr);gap:10px}.lb-prev,.lb-next{width:40px;height:40px;font-size:28px}}
+@media(max-width:480px){.gallery-grid{grid-template-columns:1fr 1fr;gap:8px}}
+</style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <a href="index.html" class="nav-logo">
+      <img src="images/logo.jpg" alt="绿豪农业" class="logo-img">
+      <span>绿豪农业</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">首页</a></li>
+      <li><a href="products.html">业务体系</a></li>
+      <li><a href="gallery.html" class="active">基地图库</a></li>
+      <li><a href="about.html">关于我们</a></li>
+      <li><a href="news.html">新闻资讯</a></li>
+      <li><a href="contact.html" class="nav-cta">联系我们</a></li>
+    </ul>
+    <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <h1>📸 基地图库</h1>
+    <p>田间实拍 · 记录每一粒米的成长</p>
+  </div>
+</section>
+
+<div class="breadcrumb">
+  <div class="container"><a href="index.html">首页</a><span>/</span>基地图库</div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" id="lbClose">&times;</button>
+  <button class="lb-prev" id="lbPrev">&#8249;</button>
+  <button class="lb-next" id="lbNext">&#8250;</button>
+  <img src="" alt="" id="lbImg">
+  <div class="lb-counter" id="lbCounter"></div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div><h4>🌾 绿豪农业</h4><p>海南儋州绿豪农业有限公司<br>五良融合 · 绿色高质 · 乡村振兴</p></div>
+      <div><h4>快速导航</h4><p><a href="index.html">首页</a></p><p><a href="products.html">业务体系</a></p><p><a href="gallery.html">基地图库</a></p><p><a href="about.html">关于我们</a></p></div>
+      <div><h4>核心业务</h4><p><a href="products.html">优质水稻</a></p><p><a href="products.html">鲜食毛豆</a></p><p><a href="products.html">农业服务</a></p></div>
+      <div><h4>联系方式</h4><p>📍 海南省儋州市东成镇</p></div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 海南儋州绿豪农业有限公司. All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+// Gallery data - image filenames and captions
+const images = [
+  {src:'images/图片1.png',title:'水稻幼苗期 — 绿意盎然的希望'},
+  {src:'images/图片2.png',title:'无人机植保作业 — 精准施肥喷药'},
+  {src:'images/图片3.png',title:'水稻分蘖期 — 长势旺盛的稻田'},
+  {src:'images/图片4.png',title:'金秋丰收季 — 机械化收割现场'},
+  {src:'images/图片5.png',title:'稻穗饱满 — 等待收割的成熟水稻'},
+  {src:'images/图片6.png',title:'毛豆种植基地 — 广阔豆田'},
+  {src:'images/图片7.png',title:'田间管理 — 科学种植标准化'},
+  {src:'images/图片8.png',title:'绿豪农业基地 — 俯瞰全景'},
+  {src:'images/图片9.png',title:'丰收成果 — 颗粒归仓'},
+];
+
+let currentIndex = 0;
+const grid = document.getElementById('galleryGrid');
+const lightbox = document.getElementById('lightbox');
+const lbImg = document.getElementById('lbImg');
+const lbCounter = document.getElementById('lbCounter');
+
+// Build grid
+images.forEach((img, i) => {
+  const item = document.createElement('div');
+  item.className = 'gallery-item';
+  item.innerHTML = `
+    <img src="${img.src}" alt="${img.title}" loading="lazy">
+    <div class="overlay"><span>${img.title}</span></div>
+  `;
+  item.onclick = () => openLightbox(i);
+  grid.appendChild(item);
+});
+
+function openLightbox(i) {
+  currentIndex = i;
+  lbImg.src = images[i].src;
+  lbImg.alt = images[i].title;
+  lbCounter.textContent = `${i+1} / ${images.length}`;
+  lightbox.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  lightbox.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function prev() {
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  lbImg.src = images[currentIndex].src;
+  lbCounter.textContent = `${currentIndex+1} / ${images.length}`;
+}
+
+function next() {
+  currentIndex = (currentIndex + 1) % images.length;
+  lbImg.src = images[currentIndex].src;
+  lbCounter.textContent = `${currentIndex+1} / ${images.length}`;
+}
+
+document.getElementById('lbClose').onclick = closeLightbox;
+document.getElementById('lbPrev').onclick = prev;
+document.getElementById('lbNext').onclick = next;
+lightbox.onclick = e => { if(e.target === lightbox) closeLightbox(); };
+
+document.addEventListener('keydown', e => {
+  if(!lightbox.classList.contains('open')) return;
+  if(e.key === 'Escape') closeLightbox();
+  if(e.key === 'ArrowLeft') prev();
+  if(e.key === 'ArrowRight') next();
+});
+</script>
+</body>
+</html>
