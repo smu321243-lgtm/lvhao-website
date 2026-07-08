@@ -205,8 +205,58 @@ img{max-width:100%;display:block}
 .product-card .img{height:220px;position:relative;overflow:hidden}
 .product-card .img .bg{position:absolute;inset:0;transition:transform .6s}
 .product-card:hover .img .bg{transform:scale(1.08)}
-.product-card .img .emoji{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:72px;transition:transform .5s}
+.product-card .img .emoji{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:60px;transition:transform .5s;z-index:2;text-shadow:0 2px 8px rgba(0,0,0,.15)}
 .product-card:hover .img .emoji{transform:scale(1.15)}
+/* Card landscape backgrounds — CSS painted */
+.card-bg-rice{
+  background:
+    /* sky */
+    linear-gradient(180deg, #c9e4f7 0%, #dceef8 25%, transparent 35%),
+    /* mountains */
+    linear-gradient(175deg, transparent 30%, #c8dcc0 32%, #b5cda8 38%, #a3bf90 45%, #90b078 55%),
+    /* rice field stripes */
+    repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(100,140,60,.15) 3px, rgba(100,140,60,.15) 4px),
+    /* field base */
+    linear-gradient(180deg, #b5d090 40%, #8db860 70%, #7aad48 100%);
+}
+.card-bg-soybean{
+  background:
+    linear-gradient(180deg, #d4e8f5 0%, #e8f0f4 20%, transparent 30%),
+    linear-gradient(175deg, transparent 28%, #d8c8a0 30%, #c8b878 38%, #b8a860 50%, #a89848 65%),
+    repeating-linear-gradient(45deg, transparent, transparent 8px, rgba(139,120,60,.12) 8px, rgba(139,120,60,.12) 9px),
+    linear-gradient(180deg, #c8b870 40%, #a89040 75%, #988030 100%);
+}
+.card-bg-machine{
+  background:
+    linear-gradient(180deg, #b8d8f0 0%, #d0e4f4 25%, transparent 35%),
+    linear-gradient(175deg, transparent 30%, #a8c898 32%, #98b880 40%, #88a870 50%),
+    linear-gradient(180deg, #a0c080 40%, #80a058 70%, #609040 100%),
+    repeating-linear-gradient(90deg, transparent, transparent 30px, rgba(100,130,60,.1) 30px, rgba(100,130,60,.1) 31px);
+}
+.card-bg-village{
+  background:
+    linear-gradient(180deg, #e0d8c0 0%, #d8d0b4 15%, #d0c8a8 25%, transparent 30%),
+    linear-gradient(175deg, transparent 28%, #a0c090 30%, #90b878 40%, #80a868 55%),
+    repeating-linear-gradient(0deg, transparent, transparent 5px, rgba(100,130,60,.1) 5px, rgba(100,130,60,.1) 6px),
+    linear-gradient(180deg, #a0c080 40%, #78a050 70%, #609038 100%);
+}
+/* News card backgrounds */
+.card-bg-news1{background:linear-gradient(180deg,#e0ecd8 0%,#c8dcc0 40%,#b0d0a0 100%);}
+.card-bg-news2{background:linear-gradient(180deg,#f5ecd8 0%,#f0e0c0 40%,#e8d0a0 100%);}
+.card-bg-news3{background:linear-gradient(180deg,#f8e4e0 0%,#f4d8d0 40%,#f0c8c0 100%);}
+.card-bg-news4{background:linear-gradient(180deg,#dce8f4 0%,#d0ddf0 40%,#c0d0e8 100%);}
+.card-bg-news5{background:linear-gradient(180deg,#e4f0dc 0%,#d4e8c8 40%,#c4e0b4 100%);}
+.card-bg-news6{background:linear-gradient(180deg,#faf0e0 0%,#f8e8d0 40%,#f4dcc0 100%);}
+/* Landscape accent dots */
+.card-bg-rice::after, .card-bg-soybean::after, .card-bg-machine::after, .card-bg-village::after{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 20% 70%, rgba(255,255,255,.12) 0%, transparent 8%),
+    radial-gradient(circle at 45% 55%, rgba(255,255,255,.08) 0%, transparent 5%),
+    radial-gradient(circle at 75% 75%, rgba(255,255,255,.1) 0%, transparent 6%),
+    radial-gradient(circle at 60% 85%, rgba(255,255,255,.06) 0%, transparent 4%);
+  pointer-events:none;
+}
 .product-card .info{padding:22px}
 .product-card .info h3{font-size:18px;font-weight:600;margin-bottom:6px}
 .product-card .info p{font-size:13px;color:var(--text-light);line-height:1.6}
