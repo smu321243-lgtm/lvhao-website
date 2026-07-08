@@ -75,27 +75,40 @@
     <div class="section-header">
       <span class="tag">种植品种</span>
       <h2>优质水稻品种</h2>
+      <div class="title-accent"></div>
+      <p>点击品种卡片查看详细资料</p>
     </div>
     <div class="products-grid">
-      <div class="product-card">
-        <div class="img"><div class="emoji">🌱</div></div>
-        <div class="info"><h3>特优9068</h3><p>高产稳产优质品种，适应性强</p></div>
+      <div class="product-card" onclick="openVariety('teyou9068')">
+        <div class="img"><div class="bg" style="background:linear-gradient(135deg,#e8f5e9,#c8e6c9);"></div><div class="emoji">🌱</div></div>
+        <div class="info"><h3>特优9068</h3><p>🏆 海南好米金奖 · 高产抗病杂交稻</p><span class="read-more">点击查看详情 →</span></div>
       </div>
-      <div class="product-card">
-        <div class="img gold-bg"><div class="emoji">🍚</div></div>
-        <div class="info"><h3>玖里香</h3><p>米质优良，香气浓郁，市场认可度高</p></div>
+      <div class="product-card" onclick="openVariety('jiulixiang')">
+        <div class="img"><div class="bg" style="background:linear-gradient(135deg,#fff3e0,#ffe0b2);"></div><div class="emoji">🍚</div></div>
+        <div class="info"><h3>玖里香</h3><p>🏆 海南好米金奖 · 部标优质1级香米</p><span class="read-more">点击查看详情 →</span></div>
       </div>
-      <div class="product-card">
-        <div class="img earth-bg"><div class="emoji">🌾</div></div>
-        <div class="info"><h3>玮两钰占</h3><p>抗倒伏能力强，适合机械化收割</p></div>
+      <div class="product-card" onclick="openVariety('weiliangyuzhan')">
+        <div class="img"><div class="bg" style="background:linear-gradient(135deg,#e3f2fd,#bbdefb);"></div><div class="emoji">🌾</div></div>
+        <div class="info"><h3>玮两优钰占</h3><p>🔬 袁隆平团队 · 国标二级高产广适</p><span class="read-more">点击查看详情 →</span></div>
       </div>
-      <div class="product-card">
-        <div class="img"><div class="emoji">✨</div></div>
-        <div class="info"><h3>美两优秋香</h3><p>米质优、口感好，高端市场定位</p></div>
+      <div class="product-card" onclick="openVariety('meiliangyou')">
+        <div class="img"><div class="bg" style="background:linear-gradient(135deg,#fce4ec,#f8bbd0);"></div><div class="emoji">✨</div></div>
+        <div class="info"><h3>美两优秋香</h3><p>🏆 海南好米金奖 · 浓香高端香米</p><span class="read-more">点击查看详情 →</span></div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- 品种详情弹窗 -->
+<div class="modal-overlay" id="varietyOverlay" onclick="closeVariety(event)">
+  <div class="modal-box" id="varietyBox" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeVariety()">&times;</button>
+    <h2 id="vTitle"></h2>
+    <div class="modal-date" id="vSubtitle"></div>
+    <div class="modal-body" id="vBody"></div>
+    <div class="modal-source" id="vSource"></div>
+  </div>
+</div>
 
 <!-- 毛豆 -->
 <section class="section">
@@ -194,5 +207,101 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script>
+const varieties = {
+  teyou9068: {
+    title: '特优9068 — 海南好米金奖品种',
+    subtitle: '籼型三系杂交水稻 | 选育：广东华茂高科 × 广东农科院水稻所 | 粤审稻20210028',
+    body: `<p><b>品种概况：</b>感温型籼型三系杂交水稻，亲本为龙特浦A×广恢9068。2021年广东省审定，获评<b>"海南好米"金奖品种</b>，三亚市农业主导品种。</p>
+<p><b>🌾 特征特性：</b></p>
+<p>• 全生育期：早造123~128天，与深两优58香油占相当</p>
+<p>• 株高104.5~113.8cm，株型中集，分蘖力中等，抗倒力中强</p>
+<p>• 穗长21.5~21.6cm，每穗总粒136~138粒，结实率85.6%以上</p>
+<p>• 千粒重26.9~27.9克，粒型较大</p>
+<p><b>🛡️ 抗病性：</b>抗稻瘟病（叶瘟1.8级，穗瘟1.5~3.0级），中抗白叶枯病</p>
+<p><b>📊 产量表现：</b>广东区试平均亩产446~508kg，生产试验515kg，海南示范测产<b>572.6kg</b></p>
+<p><b>🍚 米质：</b>整精米率53.7%~57.9%，直链淀粉21.5%~22.6%，长宽比2.3~2.5</p>
+<p><b>💡 种植优势：</b>常规栽培管理即可，无需特殊管理，适合机械化种植。田间长势旺盛，叶色绿、叶姿直，成穗率高，熟色好。</p>`,
+    source: '来源：广东省农业科学院、中国水稻品种数据库 (ricedata.cn)'
+  },
+  jiulixiang: {
+    title: '玖里香 — 部标优质1级浓香型丝苗米',
+    subtitle: '籼型常规水稻 | 选育：中国种子集团 × 广东农科院水稻所 | 琼审稻2023011',
+    body: `<p><b>品种概况：</b>籼型常规水稻，亲本为南泰香占×南桂占。2023年海南审定，2024年国家审定，2025年广东审定。获评<b>第五届"海南好米"金奖</b>。</p>
+<p><b>🌾 特征特性：</b></p>
+<p>• 全生育期：广东晚造110~113天，海南晚造108~121天</p>
+<p>• 株高102~106cm，株型中集，分蘖力中等</p>
+<p>• 穗长22.5~23.4cm，每穗总粒133~140粒，结实率87%~91%</p>
+<p>• 千粒重21.3~21.4克</p>
+<p><b>🍚 米质亮点（部标优质1级）：</b></p>
+<p>• <b>垩白度接近0%</b>（0.0%~0.2%），米粒晶莹剔透</p>
+<p>• 长宽比4.2~4.3，典型丝苗米外观</p>
+<p>• 香味物质2-AP含量<b>146~214 μg/kg</b>，香气浓郁持久</p>
+<p>• 食味品鉴分<b>86.6分</b>，米饭颗粒分明、软硬适中、有嚼劲</p>
+<p>• 直链淀粉15.6%，胶稠度66~74mm</p>
+<p><b>📊 产量表现：</b>广东区试平均亩产420~443kg，比对照美香占2号<b>增产9%~11%</b></p>
+<p><b>🛡️ 抗性：</b>抗稻瘟病强，抗倒伏，耐寒中强。注意防治白叶枯病和褐飞虱</p>`,
+    source: '来源：广东省农业农村厅、国家农作物品种审定委员会、中国水稻品种数据库'
+  },
+  weiliangyuzhan: {
+    title: '玮两优钰占 — 袁隆平团队国审超级稻',
+    subtitle: '籼型两系杂交水稻 | 选育：袁隆平农业高科技股份有限公司 | 国审稻20232005',
+    body: `<p><b>品种概况：</b>由<b>袁隆平农业高科技股份有限公司</b>培育的籼型两系杂交水稻，亲本为华玮338S×钰占。通过国家审定（多区域）、广西审定、贵州审定等，入选<b>2025年百项重大农业科技成果</b>。</p>
+<p><b>🌾 特征特性（华南早晚稻）：</b></p>
+<p>• 早稻全生育期126.9天，株高118.8cm，穗长24.4cm</p>
+<p>• 每穗总粒143~158粒，千粒重24.9~25.8克</p>
+<p>• 晚稻全生育期117.7天，比对照吉丰优1002早熟1天</p>
+<p>• 分蘖力强，亩有效穗16.7~19.1万穗</p>
+<p><b>📊 产量表现：</b></p>
+<p>• 华南早稻区试平均亩产<b>525.8kg</b>，晚稻503kg</p>
+<p>• 长江上游中稻平均亩产<b>653.3kg</b></p>
+<p>• 长江中下游中稻平均亩产<b>637.4kg</b>（比对照增产4.9%）</p>
+<p><b>🍚 米质（国标二级）：</b>整精米率61.8%~67.8%，垩白度1.7%~3.0%，直链淀粉16.0%~16.4%，胶稠度60~69mm，透明度1级</p>
+<p><b>🛡️ 抗性：</b>中抗稻瘟病，耐热性较强。注意防治白叶枯病和稻飞虱</p>
+<p><b>💡 亮点：</b>适应性极广，覆盖华南、长江上游、长江中下游三大稻区。2025年入选全国百项重大农业科技成果，是袁隆平农业高科近年主推的明星品种。</p>`,
+    source: '来源：国家农作物品种审定委员会、袁隆平农业高科技股份有限公司、中国水稻品种数据库'
+  },
+  meiliangyou: {
+    title: '美两优秋香 — 海南好米金奖浓香高端品种',
+    subtitle: '籼型两系杂交水稻 | 选育：广州优能达稻米科技 | 琼审稻2023003',
+    body: `<p><b>品种概况：</b>籼型两系杂交水稻，亲本为美香93S×优能秋香。2023年海南省审定，连续多年获评<b>"海南好米"金奖品种</b>，三亚市农业主导品种，被用于打造"月月鲜米"高端品牌。</p>
+<p><b>🌾 特征特性：</b></p>
+<p>• 全生育期：海南晚造109~120天，平均约115天</p>
+<p>• 株高106cm，穗长23.3cm</p>
+<p>• 亩有效穗18.25万，每穗总粒135.9粒</p>
+<p>• 千粒重22.3克，结实率77.4%</p>
+<p><b>🍚 米质亮点：</b></p>
+<p>• <b>纯米香味非常浓郁</b>，食味品质突出</p>
+<p>• 直链淀粉15.5%，软糯中不失嚼劲</p>
+<p>• 吃后润味甘甜，营养成分高</p>
+<p>• 被评为部颁优质香米2级</p>
+<p><b>📊 产量表现：</b>海南晚造区试平均亩产346~449kg，属优质偏低产类型</p>
+<p><b>🛡️ 抗性：</b>田间表现轻感穗颈瘟和轻感白叶枯，需注意防治</p>
+<p><b>💡 市场定位：</b>虽然产量不突出，但因<b>米香浓郁、口感极佳</b>，在高端米市场中竞争力强。适合打造品牌溢价的高端香米产品。</p>`,
+    source: '来源：海南省农业农村厅、广州优能达稻米科技、中国水稻品种数据库'
+  }
+};
+
+function openVariety(id) {
+  const v = varieties[id];
+  if (!v) return;
+  document.getElementById('vTitle').textContent = v.title;
+  document.getElementById('vSubtitle').textContent = v.subtitle;
+  document.getElementById('vBody').innerHTML = v.body;
+  document.getElementById('vSource').textContent = v.source || '';
+  document.getElementById('varietyOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeVariety(e) {
+  if (e && e.target !== document.getElementById('varietyOverlay')) return;
+  document.getElementById('varietyOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeVariety();
+});
+</script>
 </body>
 </html>
