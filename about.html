@@ -5,6 +5,31 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <title>关于我们 — 海南儋州绿豪农业有限公司</title>
 <link rel="stylesheet" href="css/style.css">
+<style>
+.about-banner{background:linear-gradient(135deg,var(--green-950),#1a3320);color:#fff;padding:60px 0;text-align:center}
+.about-banner h2{font-size:32px;margin-bottom:12px}
+.about-banner p{color:rgba(255,255,255,.65);max-width:600px;margin:0 auto;font-size:15px;line-height:1.8}
+.mission-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:-40px;position:relative;z-index:2}
+.mission-card{background:#fff;border-radius:var(--radius-md);padding:32px 24px;text-align:center;box-shadow:var(--shadow-md)}
+.mission-card .micon{font-size:48px;margin-bottom:14px}
+.mission-card h3{font-size:18px;font-weight:700;margin-bottom:8px;color:var(--green-900)}
+.mission-card p{font-size:13px;color:var(--text-light);line-height:1.7}
+.rotation-diagram{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.rotation-box{border-radius:var(--radius-lg);overflow:hidden;padding:36px}
+.rotation-box.spring{background:linear-gradient(135deg,var(--green-200),var(--green-100))}
+.rotation-box.autumn{background:linear-gradient(135deg,var(--gold-200),var(--gold-100))}
+.rotation-box h3{font-size:20px;margin-bottom:14px}
+.rotation-box ul li{padding:8px 0;font-size:14px;line-height:1.8;color:var(--text-secondary)}
+.rotation-box ul li b{color:var(--text-primary)}
+.highlight-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.highlight-item{text-align:center;padding:24px 16px;background:#fff;border-radius:var(--radius-sm);box-shadow:var(--shadow-sm);transition:transform .3s}
+.highlight-item:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
+.highlight-item .hi-icon{font-size:36px;margin-bottom:10px}
+.highlight-item .hi-num{font-size:32px;font-weight:800;color:var(--green-600);font-family:var(--font-display)}
+.highlight-item .hi-label{font-size:13px;color:var(--text-light)}
+@media(max-width:768px){.mission-grid,.highlight-grid{grid-template-columns:1fr 1fr}.rotation-diagram{grid-template-columns:1fr}}
+@media(max-width:480px){.mission-grid,.highlight-grid{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
 
@@ -41,80 +66,185 @@
   <div class="container">
     <div class="about-grid">
       <div class="about-text">
+        <span class="tag">公司简介</span>
         <h2>海南儋州绿豪农业有限公司</h2>
-        <p>海南儋州绿豪农业有限公司成立于海南省儋州市东成镇，是一家以<b>水稻和毛豆规模化种植</b>为核心业务的现代农业企业。</p>
-        <p>公司采用"<b>公司+农户</b>"经营模式，在东成镇高荣村、番陈村、书村村、里仁村、迈格村、周坊村等7个村庄承租土地，总种植规模超过<b>8000亩</b>，是儋州当地规模化农业的标杆企业。</p>
-        <p>公司先后承担<b>儋州市水稻绿色高质高效项目</b>（2025年，3979亩）和<b>儋州市新型经营主体单产提升项目</b>（2026年，2589亩），是政府认定的重点农业经营主体。</p>
+        <p>海南儋州绿豪农业有限公司成立于<b>海南省儋州市东成镇</b>，是一家以<b>水稻和毛豆规模化种植</b>为核心业务的现代农业企业，是儋州当地规模化农业的标杆。</p>
+        <p>公司采用"<b>公司+农户</b>"经营模式，在东成镇高荣村、番陈村、书村村、里仁村、迈格村、周坊村等<b>7个村庄</b>承租土地，水稻种植面积超过<b>2,500亩</b>，毛豆种植面积超过<b>5,600亩</b>，总规模逾<b>8,000亩</b>。</p>
+        <p>丰收季节每日雇用<b>1,000多名</b>劳动力，带动周边村民通过"土地租金+务工收入"双重增收，让村民在家门口实现就业致富。</p>
       </div>
-      <div style="background:linear-gradient(135deg, var(--green-200), var(--green-100));border-radius:var(--radius-lg);padding:50px;text-align:center;">
-        <div style="font-size:80px;margin-bottom:16px;">🌾</div>
-        <div style="font-size:24px;font-weight:700;color:var(--green-800);">绿豪农业</div>
-        <div style="color:var(--green-700);">绿色 · 高效 · 共赢</div>
+      <div class="about-visual">
+        <div class="about-img card-bg-village" style="height:300px"></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 企业文化 -->
-<section class="section" style="background:var(--bg-light);">
+<!-- 三个使命 -->
+<section class="section bg-light">
   <div class="container">
     <div class="section-header">
-      <span class="tag">企业文化</span>
-      <h2>我们的价值观</h2>
+      <span class="tag">企业使命</span>
+      <h2>为什么做农业</h2>
+      <div class="title-accent"></div>
+    </div>
+    <div class="mission-grid">
+      <div class="mission-card">
+        <div class="micon">🌾</div>
+        <h3>种出中国好粮</h3>
+        <p>推广特优9068、玖里香等优质水稻品种，应用五良融合模式，让每一粒米都有品质保障，让消费者吃上放心粮。</p>
+      </div>
+      <div class="mission-card">
+        <div class="micon">🤝</div>
+        <h3>带动乡亲致富</h3>
+        <p>通过"公司+农户"模式，让村民既有土地租金保底，又有田间务工增收。丰收季日雇千人，把就业机会留在乡村。</p>
+      </div>
+      <div class="mission-card">
+        <div class="micon">🌍</div>
+        <h3>守护海南粮仓</h3>
+        <p>在儋州推广稻豆轮作，改良土壤、减少病虫害，实现经济效益与生态效益双赢，为海南粮食安全贡献力量。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 稻豆轮作 -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="tag">种植模式</span>
+      <h2>稻豆轮作 · 一年两季</h2>
+      <div class="title-accent"></div>
+      <p>科学轮作让土地不闲置、土壤更健康、收益翻一倍</p>
+    </div>
+    <div class="rotation-diagram">
+      <div class="rotation-box spring">
+        <h3>🌾 上季 · 水稻（1月-6月）</h3>
+        <ul>
+          <li><b>种植面积：</b>2,500+ 亩</li>
+          <li><b>主要品种：</b>特优9068、特优458、玖里香、玮两优钰占、美两优秋香</li>
+          <li><b>技术体系：</b>五良融合（良种+良田+良法+良机+良制）</li>
+          <li><b>全程机械化：</b>机耕→机插→无人机植保→机收</li>
+          <li><b>政府项目：</b>2025年绿色高质高效项目、2026年单产提升项目</li>
+        </ul>
+      </div>
+      <div class="rotation-box autumn">
+        <h3>🫘 下季 · 毛豆（8月-12月）</h3>
+        <ul>
+          <li><b>种植面积：</b>5,600 亩，覆盖7个村庄</li>
+          <li><b>亩产：</b>约1,300斤，收购价5-6元/斤</li>
+          <li><b>每亩收益：</b>超6,000元</li>
+          <li><b>销售市场：</b>武汉、长沙、上海等全国各地</li>
+          <li><b>带动就业：</b>丰收季日雇1,000+劳动力</li>
+        </ul>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:24px;color:var(--text-light);font-size:14px;">💡 水稻收割后种植毛豆，豆科作物固氮养地，减少化肥使用，第二年水稻产量和品质双双提升。</p>
+  </div>
+</section>
+
+<!-- 数据亮点 -->
+<section class="section bg-light">
+  <div class="container">
+    <div class="section-header">
+      <span class="tag">数据看板</span>
+      <h2>绿豪农业 · 数字档案</h2>
+      <div class="title-accent"></div>
+    </div>
+    <div class="highlight-grid">
+      <div class="highlight-item"><div class="hi-icon">📐</div><div class="hi-num">8,000+</div><div class="hi-label">总种植规模（亩）</div></div>
+      <div class="highlight-item"><div class="hi-icon">🏘️</div><div class="hi-num">7-10</div><div class="hi-label">覆盖村委会</div></div>
+      <div class="highlight-item"><div class="hi-icon">👥</div><div class="hi-num">1,000+</div><div class="hi-label">日带动就业（人）</div></div>
+      <div class="highlight-item"><div class="hi-icon">🌾</div><div class="hi-num">5</div><div class="hi-label">主推水稻品种</div></div>
+      <div class="highlight-item"><div class="hi-icon">🏆</div><div class="hi-num">3</div><div class="hi-label">海南好米金奖品种</div></div>
+      <div class="highlight-item"><div class="hi-icon">📋</div><div class="hi-num">2</div><div class="hi-label">连续政府项目认定</div></div>
+      <div class="highlight-item"><div class="hi-icon">🚜</div><div class="hi-num">100%</div><div class="hi-label">机械化覆盖率</div></div>
+      <div class="highlight-item"><div class="hi-icon">💰</div><div class="hi-num">6,000</div><div class="hi-label">亩均收益（元）</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 政府认定 -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="tag">政府认定</span>
+      <h2>荣誉与项目</h2>
+      <div class="title-accent"></div>
     </div>
     <div class="values-grid">
       <div class="value-card">
-        <div class="icon">🌱</div>
-        <h4>绿色发展</h4>
-        <p>稻豆轮作，绿色种植，可持续发展</p>
-      </div>
-      <div class="value-card">
-        <div class="icon">🤝</div>
-        <h4>合作共赢</h4>
-        <p>公司+农户，带动村民家门口就业</p>
-      </div>
-      <div class="value-card">
-        <div class="icon">🔬</div>
-        <h4>科技创新</h4>
-        <p>五良融合，全程机械化，科学种植</p>
+        <div class="icon">📋</div>
+        <h4>2026年</h4>
+        <p>儋州市新型经营主体单产提升项目实施主体（水稻2,589亩，6个村委会）</p>
       </div>
       <div class="value-card">
         <div class="icon">🏆</div>
-        <h4>品质至上</h4>
-        <p>从选种到收获，全流程品质管控</p>
+        <h4>2025年</h4>
+        <p>儋州市水稻绿色高质高效项目早稻实施主体（第二批，3,979亩）</p>
+      </div>
+      <div class="value-card">
+        <div class="icon">🌾</div>
+        <h4>2024年</h4>
+        <p>儋州首批"五良融合模式"种植大户 · 海南省农业农村厅官网报道</p>
+      </div>
+      <div class="value-card">
+        <div class="icon">📰</div>
+        <h4>媒体关注</h4>
+        <p>南海网、南国都市报、儋州市融媒体中心等多家媒体报道"毛豆变金豆"</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- 发展历程 -->
-<section class="section">
+<section class="section bg-light">
   <div class="container">
     <div class="section-header">
       <span class="tag">发展历程</span>
       <h2>我们的足迹</h2>
+      <div class="title-accent"></div>
     </div>
     <div class="timeline" style="max-width:700px;margin:0 auto;">
       <div class="timeline-item">
         <div class="year">创立初期</div>
         <h4>公司成立 · 扎根东成镇</h4>
-        <p>在儋州市东成镇成立，开始规模化农业种植之路</p>
+        <p>在海南省儋州市东成镇注册成立，以水稻种植为起点，开启规模化农业之路</p>
+      </div>
+      <div class="timeline-item">
+        <div class="year">规模扩张期</div>
+        <h4>毛豆业务起步 · "公司+农户"模式成型</h4>
+        <p>逐步在东成镇7个村庄推广稻豆轮作，承租土地面积逐年扩大，探索出企业+农户共赢路径</p>
       </div>
       <div class="timeline-item">
         <div class="year">2024年</div>
-        <h4>毛豆规模突破5600亩</h4>
-        <p>毛豆种植覆盖7个村庄，日雇劳动力超1000人，获南海网等多家媒体报道</p>
+        <h4>毛豆突破5,600亩 · 获多家媒体报道</h4>
+        <p>毛豆种植覆盖7个村庄，日雇劳动力超1,000人。"毛豆变金豆"获南海网等媒体专题报道，入选儋州首批五良融合种植大户</p>
       </div>
       <div class="timeline-item">
         <div class="year">2025年</div>
         <h4>承担水稻绿色高质高效项目</h4>
-        <p>早稻种植3979亩，获儋州市农业农村局项目认定，入选第二批实施主体</p>
+        <p>入选儋州市农业农村局第二批实施主体，早稻种植3,979亩。示范区种植特优458（374.5亩）、特优9068（1,125.5亩）、美两优秋香（12亩），获政府专项资金支持</p>
       </div>
       <div class="timeline-item">
         <div class="year">2026年</div>
-        <h4>新型经营主体单产提升项目</h4>
-        <p>在东成镇6个村委会种植水稻2589亩，全面推进五良融合模式</p>
+        <h4>新型经营主体单产提升项目 · 品牌升级</h4>
+        <p>在东成镇寨脚村委会等6个村委会种植水稻2,589亩，全面推进良种良田良法良机良制五良融合。获评项目实施主体，连续两年获政府农业项目认定</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- 合作伙伴 / 销售网络 -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="tag">销售网络</span>
+      <h2>从儋州到全国</h2>
+      <div class="title-accent"></div>
+      <p>产品远销武汉、长沙、上海等全国主要城市，与各地批发市场、生鲜平台建立稳定合作关系</p>
+    </div>
+    <div style="display:flex;justify-content:center;gap:40px;flex-wrap:wrap;font-size:18px;font-weight:600;color:var(--text-secondary);padding:30px 0;">
+      <span>📍 武汉</span><span>📍 长沙</span><span>📍 上海</span><span>📍 广州</span><span>📍 深圳</span><span>📍 南宁</span>
     </div>
   </div>
 </section>
