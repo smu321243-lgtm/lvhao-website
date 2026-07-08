@@ -16,11 +16,48 @@ document.addEventListener('mousemove', e => {
   glowTimeout = setTimeout(() => glow.classList.remove('active'), 2000);
 });
 
+// ===== Count-up for new hero =====
+function runCountUp(el){
+  const target = parseInt(el.getAttribute('data-to'));
+  if(isNaN(target)) return;
+  const duration = 2000;
+  const start = performance.now();
+  function tick(now){
+    const p = Math.min((now-start)/duration, 1);
+    const val = Math.floor(p * target);
+    el.textContent = val >= 1000 ? val.toLocaleString() : val;
+    if(p < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+const hObs = new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.count-up').forEach(runCountUp);hObs.unobserve(e.target)}})
+},{threshold:.3});
+const heroNums = document.querySelector('.hero-nums');
+if(heroNums) hObs.observe(heroNums);
+
+// Stats bar counter
+const sObs = new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.stat-num').forEach(el=>{
+    const t = parseInt(el.getAttribute('data-target'));
+    if(!isNaN(t)) runCountUp2(el, t);
+  });sObs.unobserve(e.target)}})
+},{threshold:.5});
+function runCountUp2(el, target){
+  const d=1800,s=performance.now();
+  function t(n){const p=Math.min((n-s)/d,1);const v=Math.floor(p*target);el.textContent=p>=1?target.toLocaleString():v.toLocaleString();if(p<1)requestAnimationFrame(t)}
+  requestAnimationFrame(t);
+}
+const sb = document.querySelector('.stats-bar');
+if(sb) sObs.observe(sb);
+
 // ===== 粒子系统 =====
 (function(){
+  const heroEl = document.querySelector('.hero-new') || document.querySelector('.hero');
+  if(!heroEl) return;
   const container = document.createElement('div');
   container.className = 'particles';
-  document.querySelector('.hero').appendChild(container);
+  heroEl.appendChild(container);
 
   const colors = ['#44c06d','#6ed48f','#a3e6b8','#e8b84b','#f2d68b'];
   for(let i=0;i<25;i++){
