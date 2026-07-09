@@ -570,3 +570,27 @@ img{max-width:100%;display:block}
 @keyframes uvResetArrow { 0% { transform: translateX(-128px) } 100% { transform: translateX(0) } }
 @keyframes uvPath { from { stroke: white } to { stroke-dashoffset: -480; stroke: #a3e6b8 } }
 @keyframes uvSplash { to { stroke-dasharray: 2 60; stroke-dashoffset: -60 } }
+
+/* ===== Uiverse 3D Flip Card (Green Edition) ===== */
+.flip3d { width:100%; height:360px; overflow:visible; }
+.flip3d .f3-inner { width:100%; height:100%; transform-style:preserve-3d; transition:transform .6s ease; box-shadow:0 4px 24px rgba(0,0,0,.1); border-radius:16px; }
+.flip3d:hover .f3-inner { transform:rotateY(180deg); }
+.flip3d .f3-front, .flip3d .f3-back { position:absolute; inset:0; backface-visibility:hidden; -webkit-backface-visibility:hidden; border-radius:16px; overflow:hidden; }
+.f3-back { background:#1a2e14; display:flex; align-items:center; justify-content:center; }
+.f3-back::before { content:''; position:absolute; width:180px; height:180%; background:linear-gradient(90deg,transparent,rgba(68,192,109,.22),rgba(110,212,143,.35),rgba(68,192,109,.22),transparent); animation:f3Spin 4.5s linear infinite; }
+.f3-back-inner { position:absolute; inset:3px; background:#1a2e14; border-radius:14px; color:#fff; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:20px; padding:28px; text-align:center; z-index:1; }
+.f3-back-inner .f3-icon { font-size:44px; }
+.f3-back-inner strong { font-size:19px; font-weight:700; }
+.f3-back-inner p { font-size:13px; line-height:1.7; opacity:.82; }
+.f3-front { background:#fff; display:flex; flex-direction:column; }
+.f3-front .f3-img { height:200px; display:flex; align-items:center; justify-content:center; font-size:64px; position:relative; }
+.f3-front .f3-img .f3-badge { position:absolute; top:12px; left:12px; background:rgba(255,255,255,.88); padding:4px 12px; border-radius:10px; font-size:11px; font-weight:600; color:var(--green-700); z-index:2; }
+.f3-front .f3-info { padding:20px; flex:1; display:flex; flex-direction:column; justify-content:center; }
+.f3-front .f3-info h3 { font-size:18px; font-weight:700; margin-bottom:4px; color:var(--green-900); }
+.f3-front .f3-info p { font-size:13px; color:var(--text-light); line-height:1.5; }
+.f3-circle { border-radius:50%; position:absolute; filter:blur(18px); animation:f3Float 3s ease-in-out infinite; }
+.f3-circle.c1 { width:100px; height:100px; background:rgba(68,192,109,.28); left:-20px; top:-20px; }
+.f3-circle.c2 { width:160px; height:160px; background:rgba(110,212,143,.2); right:-40px; bottom:-40px; animation-delay:-1s; }
+.f3-circle.c3 { width:55px; height:55px; background:rgba(232,184,75,.25); right:20px; top:40px; animation-delay:-2s; }
+@keyframes f3Spin { 0%{transform:rotateZ(0)}100%{transform:rotateZ(360deg)} }
+@keyframes f3Float { 0%,100%{transform:translateY(0)}50%{transform:translateY(10px)} }
