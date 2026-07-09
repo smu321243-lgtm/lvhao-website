@@ -536,7 +536,7 @@ img{max-width:100%;display:block}
 .uv-btn .char.state-1 span { animation: uvCharAppear 1.2s ease backwards calc(var(--i) * .03s); }
 .uv-btn .char.state-1 span::before, .uv-btn .char span::after { content: attr(data-label); position: absolute; color: var(--white); text-shadow: -1px 1px 2px var(--g-500); left: 0; }
 .uv-btn .char span::before { opacity: 0; transform: translateY(-100%); }
-.uv-btn .char.state-2 { position: absolute; left: 80px; }
+.uv-btn .char.state-2 { position: absolute; left: 130px; }
 .uv-btn .char.state-2 span::after { opacity: 1; }
 .uv-btn .icon { animation: uvResetArrow .8s cubic-bezier(.7,-.5,.3,1.2) forwards; z-index: 10; }
 .uv-btn .icon div, .uv-btn .icon div::before, .uv-btn .icon div::after { height: 3px; border-radius: 1px; background-color: var(--white); }
