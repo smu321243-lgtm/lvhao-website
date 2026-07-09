@@ -505,3 +505,68 @@ img{max-width:100%;display:block}
   .values-grid,.stats-bar .container{grid-template-columns:1fr}
   .cursor-glow{display:none}
 }
+
+/* ===== Uiverse Animated Button (Green Edition) ===== */
+.uv-btn {
+  --white: #e8ffe8;
+  --g-100: #d3f4de;
+  --g-200: #a3e6b8;
+  --g-300: #6ed48f;
+  --g-400: #389d5a;
+  --g-500: #1a3c2a;
+  --radius: 18px;
+  border-radius: var(--radius); outline: none; cursor: pointer;
+  font-size: 23px; font-family: Arial; background: transparent;
+  letter-spacing: -1px; border: 0; position: relative;
+  width: 240px; height: 80px; transform: rotate(353deg) skewX(4deg);
+  display: inline-flex; text-decoration: none;
+}
+.uv-btn .bg { position: absolute; inset: 0; border-radius: inherit; filter: blur(1px); }
+.uv-btn .bg::before, .uv-btn .bg::after { content: ""; position: absolute; inset: 0; border-radius: calc(var(--radius) * 1.1); background: var(--g-500); }
+.uv-btn .bg::before { filter: blur(5px); transition: all .3s ease; box-shadow: -7px 6px 0 0 rgba(26,60,42,.4), -14px 12px 0 0 rgba(26,60,42,.3), -21px 18px 4px 0 rgba(26,60,42,.25), -28px 24px 8px 0 rgba(26,60,42,.15), -35px 30px 12px 0 rgba(26,60,42,.12), -42px 36px 16px 0 rgba(26,60,42,.08), -56px 42px 20px 0 rgba(26,60,42,.05); }
+.uv-btn .wrap { border-radius: inherit; overflow: hidden; height: 100%; transform: translate(6px, -6px); padding: 3px; background: linear-gradient(to bottom, var(--g-100) 0%, var(--g-400) 100%); position: relative; transition: all .3s ease; }
+.uv-btn .outline { position: absolute; overflow: hidden; inset: 0; opacity: 0; outline: none; border-radius: inherit; transition: all .4s ease; }
+.uv-btn .outline::before { content: ""; position: absolute; inset: 2px; width: 120px; height: 300px; margin: auto; background: linear-gradient(to right, transparent 0%, white 50%, transparent 100%); animation: uvSpin 3s linear infinite; animation-play-state: paused; }
+.uv-btn .content { pointer-events: none; display: flex; align-items: center; justify-content: center; z-index: 1; position: relative; height: 100%; gap: 16px; border-radius: calc(var(--radius) * 0.85); font-weight: 600; transition: all .3s ease; background: linear-gradient(to bottom, var(--g-300) 0%, var(--g-400) 100%); box-shadow: inset -2px 12px 11px -5px var(--g-200), inset 1px -3px 11px 0px rgba(0,0,0,.35); }
+.uv-btn .content::before { content: ""; inset: 0; position: absolute; z-index: 10; width: 80%; top: 45%; bottom: 35%; opacity: .7; margin: auto; background: linear-gradient(to bottom, transparent, var(--g-400)); filter: brightness(1.3) blur(5px); }
+.uv-btn .char { transition: all .3s ease; display: flex; align-items: center; justify-content: center; }
+.uv-btn .char span { display: block; color: transparent; position: relative; }
+.uv-btn .char span:nth-child(4) { margin-left: 3px; }
+.uv-btn .char.state-1 span:nth-child(4) { margin-right: -3px; }
+.uv-btn .char.state-1 span { animation: uvCharAppear 1.2s ease backwards calc(var(--i) * .03s); }
+.uv-btn .char.state-1 span::before, .uv-btn .char span::after { content: attr(data-label); position: absolute; color: var(--white); text-shadow: -1px 1px 2px var(--g-500); left: 0; }
+.uv-btn .char span::before { opacity: 0; transform: translateY(-100%); }
+.uv-btn .char.state-2 { position: absolute; left: 80px; }
+.uv-btn .char.state-2 span::after { opacity: 1; }
+.uv-btn .icon { animation: uvResetArrow .8s cubic-bezier(.7,-.5,.3,1.2) forwards; z-index: 10; }
+.uv-btn .icon div, .uv-btn .icon div::before, .uv-btn .icon div::after { height: 3px; border-radius: 1px; background-color: var(--white); }
+.uv-btn .icon div::before, .uv-btn .icon div::after { content: ""; position: absolute; right: 0; transform-origin: center right; width: 14px; border-radius: 15px; transition: all .3s ease; }
+.uv-btn .icon div { position: relative; width: 24px; box-shadow: -2px 2px 5px var(--g-400); transform: scale(.9); background: linear-gradient(to bottom, var(--white), var(--g-100)); animation: uvSwingArrow 1s ease-in-out infinite; animation-play-state: paused; }
+.uv-btn .icon div::before { transform: rotate(44deg); top: 1px; box-shadow: 1px -2px 3px -1px var(--g-400); animation: uvRotateLine1 1s linear infinite; animation-play-state: paused; }
+.uv-btn .icon div::after { bottom: 1px; transform: rotate(316deg); box-shadow: -2px 2px 3px 0 var(--g-400); background: linear-gradient(200deg, var(--white), var(--g-100)); animation: uvRotateLine2 1s linear infinite; animation-play-state: paused; }
+.uv-btn .path { position: absolute; z-index: 12; bottom: 0; left: 0; right: 0; stroke-dasharray: 150 480; stroke-dashoffset: 150; pointer-events: none; }
+.uv-btn .splash { position: absolute; top: 0; left: 0; pointer-events: none; stroke-dasharray: 60 60; stroke-dashoffset: 60; transform: translate(-17%, -31%); stroke: var(--g-300); }
+.uv-btn:hover .char.state-1 span::before { animation: uvCharAppear .7s ease calc(var(--i) * .03s); }
+.uv-btn:hover .char.state-1 span::after { opacity: 1; animation: uvCharDisappear .7s ease calc(var(--i) * .03s); }
+.uv-btn:hover .wrap { transform: translate(8px, -8px); }
+.uv-btn:hover .outline { opacity: 1; }
+.uv-btn:hover .outline::before, .uv-btn:hover .icon div::before, .uv-btn:hover .icon div::after, .uv-btn:hover .icon div { animation-play-state: running; }
+.uv-btn:active .bg::before { filter: blur(5px); opacity: .7; box-shadow: -7px 6px 0 0 rgba(26,60,42,.4), -14px 12px 0 0 rgba(26,60,42,.25), -21px 18px 4px 0 rgba(26,60,42,.15); }
+.uv-btn:active .content { box-shadow: inset -1px 12px 8px -5px rgba(0,80,20,.4), inset 0px -3px 8px 0px var(--g-200); }
+.uv-btn:active .outline { opacity: 0; }
+.uv-btn:active .wrap { transform: translate(3px, -3px); }
+.uv-btn:active .splash { animation: uvSplash .8s cubic-bezier(.3,0,0,1) forwards .05s; }
+.uv-btn:focus .path { animation: uvPath 1.6s ease forwards .2s; }
+.uv-btn:focus .icon { animation: uvArrow 1s cubic-bezier(.7,-.5,.3,1.5) forwards; }
+.uv-btn:focus .char.state-1 span { animation: uvCharDisappear .5s ease forwards calc(var(--i) * .03s); }
+.uv-btn:focus .char.state-2 span::after { animation: uvCharAppear 1s ease backwards calc(var(--i) * .03s); }
+@keyframes uvSpin { 0% { transform: rotate(0deg) } 100% { transform: rotate(360deg) } }
+@keyframes uvCharAppear { 0% { transform: translateY(50%); opacity: 0; filter: blur(20px) } 20% { transform: translateY(70%); opacity: 1 } 50% { transform: translateY(-15%); opacity: 1; filter: blur(0) } 100% { transform: translateY(0); opacity: 1 } }
+@keyframes uvCharDisappear { 0% { transform: translateY(0); opacity: 1 } 100% { transform: translateY(-70%); opacity: 0; filter: blur(3px) } }
+@keyframes uvArrow { 0% { opacity: 1 } 50% { transform: translateX(60px); opacity: 0 } 51% { transform: translateX(-200px); opacity: 0 } 100% { transform: translateX(-128px); opacity: 1 } }
+@keyframes uvSwingArrow { 50% { transform: translateX(5px) scale(.9) } }
+@keyframes uvRotateLine1 { 50% { transform: rotate(30deg) } 80% { transform: rotate(55deg) } }
+@keyframes uvRotateLine2 { 50% { transform: rotate(330deg) } 80% { transform: rotate(300deg) } }
+@keyframes uvResetArrow { 0% { transform: translateX(-128px) } 100% { transform: translateX(0) } }
+@keyframes uvPath { from { stroke: white } to { stroke-dashoffset: -480; stroke: #a3e6b8 } }
+@keyframes uvSplash { to { stroke-dasharray: 2 60; stroke-dashoffset: -60 } }
