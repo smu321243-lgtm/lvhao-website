@@ -518,7 +518,7 @@ img{max-width:100%;display:block}
   border-radius: var(--radius); outline: none; cursor: pointer;
   font-size: 23px; font-family: Arial; background: transparent;
   letter-spacing: -1px; border: 0; position: relative;
-  width: 240px; height: 80px; transform: rotate(353deg) skewX(4deg);
+  width: 260px; height: 80px; transform: rotate(353deg) skewX(4deg);
   display: inline-flex; text-decoration: none;
 }
 .uv-btn .bg { position: absolute; inset: 0; border-radius: inherit; filter: blur(1px); }
