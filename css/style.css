@@ -576,6 +576,7 @@ img{max-width:100%;display:block}
 .flip3d .f3-inner { width:100%; height:100%; transform-style:preserve-3d; transition:transform .6s ease; box-shadow:0 4px 24px rgba(0,0,0,.1); border-radius:16px; }
 .flip3d:hover .f3-inner { transform:rotateY(180deg); }
 .flip3d .f3-front, .flip3d .f3-back { position:absolute; inset:0; backface-visibility:hidden; -webkit-backface-visibility:hidden; border-radius:16px; overflow:hidden; }
+.flip3d .f3-back { transform:rotateY(180deg); }
 .f3-back { background:#0f1f0d; display:flex; align-items:center; justify-content:center; }
 .f3-back::before { content:""; position:absolute; width:200px; height:200%; background:linear-gradient(90deg,transparent,rgba(68,192,109,.35),rgba(110,212,143,.5),rgba(68,192,109,.35),transparent); animation:f3Spin 4s linear infinite; }
 .f3-back-inner { position:absolute; inset:4px; background:#0f1f0d; border-radius:14px; color:#fff; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:16px; padding:20px; text-align:center; z-index:1; }
